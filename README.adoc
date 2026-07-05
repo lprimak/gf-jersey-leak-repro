@@ -4,11 +4,30 @@ This project has been automatically generated using the
 https://start.flowlogix.com[FlowLogix Quick Start] tool from the
 https://github.com/flowlogix/archetype[FlowLogix Starter] archetype.
 
-== Running the sample
+== Running the reproducer
 [source,shell]
 ----
-./mvnw verify
+./mvnw server:extract
+./target/dependency/glassfish8/bin/asadmin start-database
+./target/dependency/glassfish8/bin/asadmin start-domain --debug
+# See debugging instructions below
+./mvnw verify -Pserver-local
 ----
+
+== How to debug
+* Open the Jersey project in your IDE
+* Check out 4.0.2-RELEASE tag
+* Attach remote debugger to port 9009
+* Set breakpoints in the Jersey code: `CdiComponentProvider.java` lines 271 and 725
+* You will see the following sequence:
+** `effectiveInjectionManager.set()`
+** `effectiveInjectionManager.remove()`
+** `effectiveInjectionManager.set()`
+
+[NOTE]
+====
+The bug is that the last `set()` is not followed by `remove()`
+====
 
 == Regenerating the project
 To regenerate the project, run the following command:
