@@ -18,7 +18,7 @@
     <properties>
         <!-- Override target java release -->
         <!-- <maven.compiler.release>25</maven.compiler.release> -->
-        <flowlogix.depchain.version>125</flowlogix.depchain.version>
+        <flowlogix.depchain.version>126</flowlogix.depchain.version>
         <flowlogix.version>11.4.1</flowlogix.version>
         <arquillian.graphene.version>3.0.1.Final</arquillian.graphene.version>
         <checkstyle.suppressionsLocation>${maven.multiModuleProjectDirectory}/src/checkstyle/suppressions.xml</checkstyle.suppressionsLocation>
