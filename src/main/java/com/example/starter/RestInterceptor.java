@@ -15,7 +15,8 @@ import java.io.IOException;
 @PreMatching
 public class RestInterceptor implements ContainerRequestFilter {
     @Context
-    private HttpServletRequest servletRequest;
+    HttpServletRequest servletRequest;
+
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
         log.info("*** Intercepting REST request: {} {}", requestContext.getMethod(), requestContext.getUriInfo().getRequestUri());
