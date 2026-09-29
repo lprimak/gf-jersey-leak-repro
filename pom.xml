@@ -72,4 +72,43 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>force-payara</id>
+            <dependencies>
+                <dependency>
+                    <groupId>fish.payara.arquillian</groupId>
+                    <artifactId>arquillian-payara-server-remote</artifactId>
+                    <version>3.1</version>
+                    <scope>runtime</scope>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>org.jboss.arquillian.container</groupId>
+                            <artifactId>*</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>org.jboss.arquillian.testenricher</groupId>
+                            <artifactId>*</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>org.jboss.arquillian.protocol</groupId>
+                            <artifactId>*</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <configuration>
+                            <classpathDependencyExcludes>
+                                <classpathDependencyExclude>ee.omnifish.arquillian:arquillian-glassfish-server-remote</classpathDependencyExclude>
+                            </classpathDependencyExcludes>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
