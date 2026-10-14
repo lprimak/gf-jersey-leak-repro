@@ -12,13 +12,13 @@
     <parent>
         <groupId>com.flowlogix</groupId>
         <artifactId>glassfish-pom</artifactId>
-        <version>145</version>
+        <version>146</version>
     </parent>
 
     <properties>
         <!-- Override target java release -->
         <!-- <maven.compiler.release>25</maven.compiler.release> -->
-        <flowlogix.depchain.version>131</flowlogix.depchain.version>
+        <flowlogix.depchain.version>133</flowlogix.depchain.version>
         <flowlogix.version>11.7.1</flowlogix.version>
         <arquillian.graphene.version>3.0.1.Final</arquillian.graphene.version>
         <checkstyle.suppressionsLocation>${maven.multiModuleProjectDirectory}/src/checkstyle/suppressions.xml</checkstyle.suppressionsLocation>
